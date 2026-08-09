@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+struct node
+{
+    int a;
+    struct node *p;
+};
+
+int main()
+{
+    struct node m, n, o, p;
+    struct node *l;
+
+    l = &m;
+
+    m.a = 100;
+    m.p = &n;
+
+    n.a = 200;
+    n.p = &o;
+
+    o.a = 300;
+    o.p = &p;
+
+    p.a = 400;
+    p.p = NULL;
+
+    printf("%d\t%p\n", l->a, l->p);
+
+    l = l->p;
+    printf("%d\t%p\n", l->a, l->p);
+
+    l = l->p;
+    printf("%d\t%p\n", l->a, l->p);
+
+    l = l->p;
+    printf("%d\t%p\n", l->a, l->p);
+
+    return 0;
+}
